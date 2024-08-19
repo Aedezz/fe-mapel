@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../css/LoginForm.css';  // Import the CSS file
+import { API_BASE_URL } from '../var';
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -10,7 +12,7 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://your-laravel-app-url/api/login', {
+            const response = await axios.post(`${API_BASE_URL}api/login`, {
                 username,
                 password,
             });
@@ -31,11 +33,11 @@ const LoginForm = () => {
     };
 
     return (
-        <div>
+        <div className="login-container">
             <h2>Login</h2>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {success && <p style={{ color: 'green' }}>{success}</p>}
-            <form onSubmit={handleSubmit}>
+            {error && <p className="error">{error}</p>}
+            {success && <p className="success">{success}</p>}
+            <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label>Username:</label>
                     <input
@@ -43,6 +45,7 @@ const LoginForm = () => {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
+                        className="input-field"
                     />
                 </div>
                 <div>
@@ -52,9 +55,10 @@ const LoginForm = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        className="input-field"
                     />
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" className="submit-button">Login</button>
             </form>
         </div>
     );

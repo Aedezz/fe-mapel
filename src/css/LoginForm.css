@@ -1,0 +1,59 @@
+/* LoginForm.css */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1e1e2f;
+    color: #fff;
+    padding: 20px;
+}
+
+.login-container h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    background-color: #2e2e3d;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.login-container .input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+}
+
+.login-container .submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-container .submit-button:hover {
+    background-color: #357ABD;
+}
+
+.login-container .error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.login-container .success {
+    color: green;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,154 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e1e2f, #2c2c44);
+    color: #fff;
+    padding: 20px;
+    position: relative;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column; /* Menempatkan title di atas form */
+    background-color: rgba(46, 46, 61, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    max-width: 800px;
+    width: 20%;
+    position: relative;
+    animation: fadeIn 0.8s ease-out; /* Menambahkan animasi fade-in */
+}
+
+.register-title {
+    background-color: #1e1e2f;
+    padding: 20px;
+    width: 100%; /* Lebar penuh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px; /* Ukuran font title yang lebih kecil */
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    border-bottom: 2px solid #333;
+}
+
+.form-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Menata field secara vertikal */
+    gap: 20px;
+}
+
+.form-left, .form-right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-content .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Jarak antara label dan input lebih kecil */
+}
+
+.form-content label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px; /* Ukuran font label lebih kecil */
+    color: #ccc; /* Warna label lebih terang */
+}
+
+.form-content input {
+    width: 100%;
+    padding: 6px; /* Padding input lebih kecil */
+    border-radius: 6px; /* Border radius lebih kecil */
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Menambahkan transisi background */
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px; /* Ukuran font input lebih kecil */
+}
+
+.form-content input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
+    outline: none;
+    background-color: #444; /* Warna latar belakang input saat fokus */
+}
+
+.form-content button {
+    align-self: center; /* Memastikan tombol berada di tengah horizontal */
+    width: auto;
+    padding: 12px;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px; /* Spasi antara input fields dan tombol */
+}
+
+.form-content button:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+}
+
+.error, .success {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0; /* Memulai dengan opacity 0 */
+    animation: fadeIn 0.5s ease-out forwards; /* Menambahkan animasi fade-in */
+}
+
+.error {
+    background-color: #e57373;
+    color: #fff;
+}
+
+.success {
+    background-color: #81c784;
+    color: #fff;
+}
+
+.btn-submit {
+    display: block;
+    width: auto;
+    padding: 8px 16px; /* Padding yang lebih kecil */
+    background-color: #4a90e2; /* Warna biru tombol */
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px; /* Ukuran font lebih kecil */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Poppins', sans-serif;
+    margin: 20px auto 0; /* Margin untuk posisi tombol di tengah bawah */
+    text-align: center;
+}
+
+.btn-submit:hover {
+    background-color: #357ABD; /* Warna biru gelap saat hover */
+    transform: scale(1.05);
+}
