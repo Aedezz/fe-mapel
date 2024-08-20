@@ -9,6 +9,14 @@
     }
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0F2027, #2C5364); /* Ensure this matches your design */
+    overflow: hidden; /* Prevent particles from affecting the viewport */
+}
+
 .register-container {
     display: flex;
     align-items: center;
@@ -40,7 +48,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 24px; /* Ukuran font title yang lebih kecil */
     font-weight: 900;
     color: #fff;
@@ -68,7 +76,7 @@
 }
 
 .form-content label {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px; /* Ukuran font label lebih kecil */
     color: #ccc; /* Warna label lebih terang */
 }
@@ -81,7 +89,7 @@
     background-color: #333;
     color: #fff;
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Menambahkan transisi background */
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px; /* Ukuran font input lebih kecil */
 }
 
@@ -103,7 +111,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin-top: 20px; /* Spasi antara input fields dan tombol */
 }
 
@@ -143,7 +151,7 @@
     font-size: 14px; /* Ukuran font lebih kecil */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 10px auto; /* Margin untuk posisi tombol di tengah bawah */
     text-align: center;
 }
@@ -151,4 +159,40 @@
 .btn-submit:hover {
     background-color: #357ABD; /* Warna biru gelap saat hover */
     transform: scale(1.05);
+}
+
+/* Triangle */
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh); /* Start above the viewport */
+    }
+    100% {
+        transform: translateY(100vh); /* End below the viewport */
+    }
+}
+
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+    opacity: 0.8;
+    animation: fall 8s linear infinite, float 6s ease-in-out infinite; /* Combine falling and floating animations */
+}
+
+.triangle:nth-child(odd) {
+    animation-duration: 10s, 8s; /* Adjust durations for odd particles */
+}
+
+.top-corner .triangle {
+    top: 0;
+    left: 0;
+}
+
+.bottom-corner .triangle {
+    bottom: 0;
+    right: 0;
 }

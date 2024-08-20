@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import TriangleParticles from '../component/Triangle.js';
 import Swal from 'sweetalert2';
 import { API_BASE_URL } from '../var';
 import '../css/RegisterForm.css';
+import '@fontsource/roboto';
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
 
 const RegisterForm = () => {
     const [level, setLevel] = useState('');
@@ -67,6 +74,7 @@ const RegisterForm = () => {
 
     return (
         <div className="register-container">
+            <TriangleParticles/> 
             <form className="form-wrapper" onSubmit={handleSubmit}>
                 <div className="register-title">Register</div>
                 <div className="form-content">

@@ -3,6 +3,11 @@ import axios from 'axios';
 import '../css/LoginForm.css';
 import { API_BASE_URL } from '../var';
 
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
+
 const LoginForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
