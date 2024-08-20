@@ -8,18 +8,38 @@ const RegisterForm = () => {
     const [level, setLevel] = useState('');
     const [nama, setNama] = useState('');
     const [username, setUsername] = useState('');
-    const [foto, setFoto] = useState('');
+    const [foto, setFoto] = useState(null);
     const [password, setPassword] = useState('');
+
+    const validateForm = () => {
+        if (!level || !nama || !username || !password) {
+            Swal.fire({
+                title: 'All Fields Required!',
+                text: 'Please fill in all the fields.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+            return false;
+        }
+        return true;
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!validateForm()) return;
+
+        const formData = new FormData();
+        formData.append('level', level);
+        formData.append('nama', nama);
+        formData.append('username', username);
+        formData.append('foto', foto);
+        formData.append('password', password);
+
         try {
-            const response = await axios.post(`${API_BASE_URL}api/register`, {
-                level,
-                nama,
-                username,
-                foto,
-                password,
+            const response = await axios.post(`${API_BASE_URL}api/register`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
             });
 
             Swal.fire({
@@ -29,15 +49,16 @@ const RegisterForm = () => {
                 confirmButtonText: 'OK'
             });
 
+            // Clear form fields
             setLevel('');
             setNama('');
             setUsername('');
-            setFoto('');
+            setFoto(null);
             setPassword('');
         } catch (err) {
             Swal.fire({
                 title: 'Registration Failed!',
-                text: 'Please check the details and try again.',
+                text: err.response?.data?.message || 'Please check the details and try again.',
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
@@ -46,7 +67,7 @@ const RegisterForm = () => {
 
     return (
         <div className="register-container">
-            <div className="form-wrapper">
+            <form className="form-wrapper" onSubmit={handleSubmit}>
                 <div className="register-title">Register</div>
                 <div className="form-content">
                     <div className="form-left">
@@ -82,9 +103,8 @@ const RegisterForm = () => {
                         <div className="form-group">
                             <label>Foto (optional):</label>
                             <input
-                                type="text"
-                                value={foto}
-                                onChange={(e) => setFoto(e.target.value)}
+                                type="file"
+                                onChange={(e) => setFoto(e.target.files[0])}
                             />
                         </div>
                         <div className="form-group">
@@ -97,9 +117,9 @@ const RegisterForm = () => {
                             />
                         </div>
                     </div>
-                    <button type="submit" className="btn-submit" onClick={handleSubmit}>Register</button>
                 </div>
-            </div>
+                <button type="submit" className="btn-submit">Register</button>
+            </form>
         </div>
     );
 };

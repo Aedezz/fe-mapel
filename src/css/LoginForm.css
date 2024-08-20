@@ -1,59 +1,87 @@
-/* LoginForm.css */
 .login-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #1e1e2f;
+    background: linear-gradient(135deg, #0F2027, #2C5364);
     color: #fff;
     padding: 20px;
 }
 
-.login-container h2 {
+.form-wrap {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(46, 46, 61, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    max-width: 400px;
+    width: 100%;
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.login-title {
+    background-color: #1e1e2f;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
     color: #fff;
     text-align: center;
-    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
 }
 
 .login-container form {
-    background-color: #2e2e3d;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-.login-container .input-field {
+.input-field {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 15px;
     border-radius: 5px;
     border: 1px solid #444;
     background-color: #333;
     color: #fff;
+    font-size: 16px;
 }
 
-.login-container .submit-button {
-    width: 100%;
-    padding: 10px;
+.input-field:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.submit-button {
+    padding: 12px;
     background-color: #4a90e2;
     border: none;
     border-radius: 5px;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
-.login-container .submit-button:hover {
+.submit-button:hover {
     background-color: #357ABD;
 }
 
-.login-container .error {
-    color: red;
-    margin-bottom: 10px;
+.error, .success {
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-.login-container .success {
+.error {
+    color: red;
+}
+
+.success {
     color: green;
-    margin-bottom: 10px;
 }
