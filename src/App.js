@@ -8,12 +8,12 @@ const App = () => {
         <Router>
             <nav>
                 <ul>
-                    {/* <li>
+                    <li>
                         <Link to="/login">Login</Link>
                     </li>
                     <li>
                         <Link to="/register">Register</Link>
-                    </li> */}
+                    </li>
                 </ul>
             </nav>
             <Routes>
