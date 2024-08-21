@@ -85,7 +85,7 @@ body {
     width: 100%;
     padding: 6px; /* Padding input lebih kecil */
     border-radius: 6px; /* Border radius lebih kecil */
-    border: 1px solid #555;
+    border: 1px solid #383030;
     background-color: #333;
     color: #fff;
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Menambahkan transisi background */

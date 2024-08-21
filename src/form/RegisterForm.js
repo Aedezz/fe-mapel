@@ -5,11 +5,8 @@ import Swal from 'sweetalert2';
 import { API_BASE_URL } from '../var';
 import '../css/RegisterForm.css';
 import '@fontsource/roboto';
-
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/icon?family=Material+Icons"
-/>
+import StyledInput from '../component/StyledInput';
+import UserIcon from '@mui/icons-material/Person'; // Import UserIcon or other icons as needed
 
 const RegisterForm = () => {
     const [level, setLevel] = useState('');
@@ -74,36 +71,40 @@ const RegisterForm = () => {
 
     return (
         <div className="register-container">
-            <TriangleParticles/> 
+            <TriangleParticles />
             <form className="form-wrapper" onSubmit={handleSubmit}>
                 <div className="register-title">Register</div>
                 <div className="form-content">
                     <div className="form-left">
                         <div className="form-group">
-                            <label>Level:</label>
-                            <input
-                                type="text"
+                            <StyledInput
+                                id="level"
+                                name="level"
                                 value={level}
                                 onChange={(e) => setLevel(e.target.value)}
+                                placeholder="Level"
                                 required
                             />
                         </div>
                         <div className="form-group">
-                            <label>Nama:</label>
-                            <input
-                                type="text"
+                            <StyledInput
+                                id="nama"
+                                name="nama"
                                 value={nama}
                                 onChange={(e) => setNama(e.target.value)}
+                                placeholder="Nama"
                                 required
                             />
                         </div>
                         <div className="form-group">
-                            <label>Username:</label>
-                            <input
-                                type="text"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                required
+                        <StyledInput
+                            id="username"
+                            name="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Username"
+                            icon={UserIcon}
+                            required
                             />
                         </div>
                     </div>
@@ -116,11 +117,13 @@ const RegisterForm = () => {
                             />
                         </div>
                         <div className="form-group">
-                            <label>Password:</label>
-                            <input
-                                type="password"
+                            <StyledInput
+                                id="password"
+                                name="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                placeholder="Password"
+                                type="password"
                                 required
                             />
                         </div>
